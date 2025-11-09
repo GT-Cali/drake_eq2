@@ -1,0 +1,10 @@
+Test_ID,Test_Name,Median_Delta,68%_CI_Width,Flagged,Interpretation
+1a,Prior Sweep: D (×2 var),+0.82,2.20,NO,Large shift but <1 dex
+1b,Prior Sweep: λ_L (×2 var),+0.58,1.87,NO,Moderate shift
+2a,Survival: k=0.5,+0.27,1.57,NO,Hazard shape matters
+2b,Survival: k=2.0,-0.50,1.63,NO,Hazard shape matters
+3a,"Copula: (f_i,f_c) ρ=0.6",+0.23,1.63,NO,Correlation subdominant
+3b,"Copula: (f_p,f_HZ) ρ=0.6",+0.10,1.57,NO,Correlation subdominant
+4,Posterior Predictive,N/A,N/A,Expected,Non-detection expected
+5,Perfect Detectability,+1.06,1.47,YES*,D limits but not sole cause
+6,M-Dwarf Emphasis,-0.14,1.60,NO,Stellar mix subdominant

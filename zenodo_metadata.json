@@ -1,0 +1,41 @@
+{
+  "upload_type": "dataset",
+  "publication_date": "2025-11-09",
+  "title": "Drake Equation 2.0: Bayesian Inference on the Prevalence of Observable Extraterrestrial Civilizations",
+  "creators": [
+    {
+      "name": "Noble, Jason R.",
+      "orcid": "0009-0006-1092-2385",
+      "affiliation": "Independent Researcher"
+    }
+  ],
+  "description": "This dataset accompanies the manuscript 'Drake Equation 2.0: Bayesian Inference on the Prevalence of Observable Extraterrestrial Civilizations' (Noble, 2025). It includes posterior samples, stress test results, Sobol sensitivity indices, and the Monte Carlo configuration file necessary for full reproducibility. All analyses were conducted using Python 3.11, NumPy, SciPy, and ArviZ in an open-science framework following AAS guidelines.",
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "Astrobiology",
+    "Bayesian Inference",
+    "SETI",
+    "Drake Equation",
+    "Monte Carlo Simulation",
+    "Reproducibility",
+    "Open Science"
+  ],
+  "notes": "This Zenodo record contains the full reproducibility package for the Drake Equation 2.0 framework. Please cite this dataset using the DOI once assigned. All files are described in README_DATA.md.",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.XXXXXXX",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-article"
+    }
+  ],
+  "language": "eng",
+  "version": "1.0",
+  "contributors": [],
+  "communities": [
+    {
+      "identifier": "astrobiology"
+    }
+  ],
+  "doi": "10.5281/zenodo.XXXXXXX"
+}
