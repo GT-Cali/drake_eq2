@@ -1,22 +1,13 @@
 cff-version: 1.2.0
-title: "Drake Equation 2.0: Bayesian Inference on the Prevalence of Observable Extraterrestrial Civilizations"
-message: "If you use this dataset or framework, please cite it as below."
-type: dataset
+message: "If you use this repository, please cite it as below."
+title: "Drake Equation 2.0: A Bayesian, Time-Dependent, and Observability-Centered Framework"
 authors:
   - family-names: Noble
-    given-names: Jason R.
-    orcid: "https://orcid.org/0009-0006-1092-2385"
-    affiliation: "Independent Researcher"
-abstract: >
-  Dataset and reproducibility framework accompanying the paper "Drake Equation 2.0: Bayesian Inference on the Prevalence of Observable Extraterrestrial Civilizations".
-version: "1.0"
-date-released: "2025-11-09"
+    given-names: Jason Richard
+    email: jaynoble@gmail.com
+year: 2025
+doi: 10.5281/zenodo.17566009
+version: v1.0.1
 license: MIT
-repository-code: "https://github.com/USERNAME/drake_eq2"
-doi: "10.5281/zenodo.XXXXXXX"
-keywords:
-  - Astrobiology
-  - Bayesian Inference
-  - Drake Equation
-  - SETI
-  - Monte Carlo Simulation
+url: https://github.com/GT-Cali/drake_eq2
+repository-code: https://github.com/GT-Cali/drake_eq2
