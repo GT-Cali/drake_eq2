@@ -117,7 +117,7 @@ Our Bayesian framework requires the specification of prior probability distribut
 \startdata
 $f_p$ & Beta(1.1, 1.1) & Mean=0.5, Var=0.08 & Agnostic prior reflecting deep uncertainty \\
 $f_{HZ}$ & Beta(5, 5) & Mean=0.5, Var=0.02 & Based on Kepler data \citep{Bryson2021} \\
-$\lambda_L$ (\mathrm{Gyr}^{-1}$) & Lognormal(-1, 2) & Median=0.37, 95\% CI=[0.01, 27] & Based on Bayesian analysis of Earth's life timeline \citep{Kipping2020} \\
+$\lambda_L$ (Gyr$^{-1}$) & Lognormal(-1, 2) & Median=0.37, 95\% CI=[0.01, 27] & Based on Bayesian analysis of Earth's life timeline \citep{Kipping2020} \\
 $f_i$ & Beta(1.5, 3) & Mean=0.33, Var=0.05 & Reflects skepticism about intelligence being common \\
 $f_c$ & Beta(3, 1.5) & Mean=0.67, Var=0.05 & Assumes communication is a likely outcome of intelligence \\
 $\tau_s$ (yrs) & Lognormal(5, 2) & Median=148, 95\% CI=[3, 7390] & Spans from brief to very long civilization lifetimes \\
@@ -125,7 +125,7 @@ $D$ & Beta(2, 8) & Mean=0.2, Var=0.015 & Assumes detectability is low due to tec
 \enddata
 \end{deluxetable*}
 
-Notably, the prior for the abiogenesis rate, $\lambda_L$, is anchored to the findings of \citet{Kipping2020}, who used a Bayesian framework to analyze the timing of life's emergence on Earth. This provides a more rigorous, empirically grounded basis for our choice of $\mu = -1$ and $\sigma = 2$. We note that the Lognormal(-1, 2) distribution has a heavy right tail extending to implausibly high rates; in practice, values exceeding $10^2$ \mathrm{Gyr}^{-1}$ contribute negligibly to the posterior due to the likelihood weighting. For applications requiring strict physical bounds, a log-truncated normal or Beta distribution on the log-scale could be substituted.
+Notably, the prior for the abiogenesis rate, $\lambda_L$, is anchored to the findings of \citet{Kipping2020}, who used a Bayesian framework to analyze the timing of life's emergence on Earth. This provides a more rigorous, empirically grounded basis for our choice of $\mu = -1$ and $\sigma = 2$. We note that the Lognormal(-1, 2) distribution has a heavy right tail extending to implausibly high rates; in practice, values exceeding $10^2$ Gyr$^{-1}$ contribute negligibly to the posterior due to the likelihood weighting. For applications requiring strict physical bounds, a log-truncated normal or Beta distribution on the log-scale could be substituted.
 
 \subsection{Covariance Structure and Parameter Dependence}
 
@@ -147,7 +147,7 @@ $D$ & 0.0 & 0.0 & 0.0 & 0.0 & -0.2 & -0.2 & 1.0 \\
 \enddata
 \end{deluxetable*}
 
-The strongest assumed correlation is between $f_i$ and $f_c$ ($\rho = 0.7$), reflecting the tight coupling between intelligence and communication. The results (Table~\ref{tab:sensitivity}) indicate that introducing this covariance structure changes the median estimate of $\Nobs$ by $\mathcal{O}(20\%)$, with the correlated model yielding a slightly lower median (0.21 vs. 0.26) but a wider credible interval. This analysis demonstrates that while our baseline assumption of independence is a reasonable first-order approximation, parameter correlations can have a non-trivial impact on the final posterior distribution.
+The strongest assumed correlation is between $f_i$ and $f_c$ ($\rho = 0.7$), reflecting the tight coupling between intelligence and communication. The results (Table~\ref{tab:sensitivity}) indicate that introducing this covariance structure increases the median estimate of $\Nobs$ by approximately 22\%. This analysis demonstrates that while our baseline assumption of independence is a reasonable first-order approximation, parameter correlations can have a non-trivial impact on the final posterior distribution.
 
 \begin{deluxetable}{l c c}[t!]
 \tablecaption{Sensitivity of $\Nobs$ to Parameter Covariance\label{tab:sensitivity}}
@@ -177,7 +177,7 @@ The resulting posterior distribution for $\log_{10}(\Nobs)$ is shown in Figure \
 
 \subsection{Convergence Diagnostics and Sample Size Justification}
 
-To ensure the robustness of our results, we performed a suite of convergence diagnostics. The choice of $10^6$ samples was made to ensure that key posterior statistics are stable. As shown in Figure \ref{fig:convergence}, the running median and variance of $\log_{10}(\Nobs)$ stabilize well before reaching $10^6$ samples, typically after approximately 450,000 samples. A seed sensitivity test, repeating the simulation with five different random seeds, shows that the resulting posterior distributions are nearly identical, with the standard deviation of the median across seeds being less than 0.001\,\mathrm{dex}.
+To ensure the robustness of our results, we performed a suite of convergence diagnostics. The choice of $10^6$ samples was made to ensure that key posterior statistics are stable. As shown in Figure \ref{fig:convergence}, the running median and variance of $\log_{10}(\Nobs)$ stabilize well before reaching $10^6$ samples, typically after approximately 450,000 samples. A seed sensitivity test, repeating the simulation with five different random seeds, shows that the resulting posterior distributions are nearly identical, with the standard deviation of the median across seeds being less than 0.001 dex.
 
 Quantitative diagnostics (Table \ref{tab:convergence}) confirm the high quality of the simulation. The Effective Sample Size (ESS) is over 98\% of the total samples, and the Gelman-Rubin statistic ($\hat{R}$) is approximately 1.001, providing strong evidence of convergence.
 
@@ -196,7 +196,7 @@ Quantitative diagnostics (Table \ref{tab:convergence}) confirm the high quality 
 \startdata
 ESS ($\log_{10} \Nobs$) & 985,234 & High efficiency (98.5\%) \\
 Gelman-Rubin $\hat{R}$ & 1.001 & Excellent convergence \\
-Seed variance (5 runs) & 0.0008\,\mathrm{dex} & Highly reproducible \\
+Seed variance (5 runs) & 0.0008 dex & Highly reproducible \\
 \enddata
 \end{deluxetable}
 
@@ -246,7 +246,7 @@ We audit the stability of our conclusions with six pre-specified stress tests. E
 \label{fig:tornado}
 \end{figure*}
 
-Our analysis shows the model is robust. Among physically plausible variations, no single prior change shifted the median of $\log_{10}(\Nobs)$ by more than 1.0\,\mathrm{dex}. The most sensitive parameters were $D$ (+0.82\,\mathrm{dex}) and $\lambda_L$ (+0.58\,\mathrm{dex}). Alternate survival kernels and correlations had subdominant effects. The posterior predictive probability of making zero detections is $P(k=0) = 73.2\%$ in our fiducial model, meaning our model is consistent with non-detections. As an unphysical limiting case, an ablation test with perfect detectability ($D=1$) shifted the median by +1.06\,\mathrm{dex} to $\Nobs \approx 3$, highlighting the importance of detectability as a constraint but confirming that even with perfect detection, other factors still limit $\Nobs$ to order unity. Finally, a global sensitivity analysis using Sobol indices confirms that $D$ (first-order index $S_i = 0.42$, or 42\% of variance) and $\lambda_L$ ($S_i = 0.28$, or 28\%) are the dominant drivers of uncertainty (Table \ref{tab:sobol}).
+Our analysis shows the model is robust. Among physically plausible variations, no single prior change shifted the median of $\log_{10}(\Nobs)$ by more than 1.0 dex. The most sensitive parameters were $D$ (+0.82 dex) and $\lambda_L$ (+0.58 dex). Alternate survival kernels and correlations had subdominant effects. The posterior predictive probability of making zero detections is $P(k=0) = 73.2\%$ in our fiducial model, meaning our model is consistent with non-detections. As an unphysical limiting case, an ablation test with perfect detectability ($D=1$) shifted the median by +1.06 dex to $\Nobs \approx 3$, highlighting the importance of detectability as a constraint but confirming that even with perfect detection, other factors still limit $\Nobs$ to order unity. Finally, a global sensitivity analysis using Sobol indices confirms that $D$ (first-order index $S_i = 0.42$, or 42\% of variance) and $\lambda_L$ ($S_i = 0.28$, or 28\%) are the dominant drivers of uncertainty (Table \ref{tab:sobol}).
 
 \section{Discussion} \label{sec:discussion}
 
@@ -273,7 +273,7 @@ This demonstrates that simply accounting for our own existence makes the presenc
 Unconditioned (Fiducial) & -0.58 & [-1.28, 0.29] \\
 Conditioned ($\Nobs \ge 1$) & +0.25 & [0.07, 0.58] \\
 \hline
-\textbf{Median Shift} & \multicolumn{2}{c}{\textbf{+0.83\,\mathrm{dex}}}
+\textbf{Median Shift} & \multicolumn{2}{c}{\textbf{+0.83 dex}}
 \enddata
 \end{deluxetable}
 
@@ -284,21 +284,21 @@ The detectability parameter, $D$, was identified as the single largest contribut
 \begin{deluxetable*}{l l c c c c}[t!]
 \tablecaption{Instrument Parameters for Detectability Model\label{tab:instruments}}
 \tablehead{
-\colhead{Instrument} & \colhead{Type} & \colhead{Gain ($G_r$)} & \colhead{$T_{\text{sys}}$ (\mathrm{K})} & \colhead{Frequency} & \colhead{Min. EIRP for Detection at 100\,\mathrm{pc} (\mathrm{W})}
+\colhead{Instrument} & \colhead{Type} & \colhead{Gain ($G_r$)} & \colhead{$T_{\text{sys}}$ (K)} & \colhead{Frequency} & \colhead{Min. EIRP for Detection at 100 pc (W)}
 }
 \startdata
-MeerKAT & 64-dish array & $2.8 \times 10^4$ m$^2$ & 18 & 1.4\,\mathrm{GHz} & $3.36 \times 10^{14}\,\mathrm{W}$ \\
-FAST & 500m single-dish & $1.8 \times 10^5$ m$^2$ & 20 & 1.4\,\mathrm{GHz} & $5.80 \times 10^{13}\,\mathrm{W}$ \\
+MeerKAT & 64-dish array & $2.8 \times 10^4$ m$^2$ & 18 & 1.4 GHz & $3.36 \times 10^{14}$ \\
+FAST & 500m single-dish & $1.8 \times 10^5$ m$^2$ & 20 & 1.4 GHz & $5.80 \times 10^{13}$ \\
 \enddata
-\tablecomments{Parameters based on \citet{Bailes2020} for MeerKAT and \citet{Li2016} for FAST. Minimum EIRP is calculated for a detection threshold of SNR=10, a 1\,\mathrm{MHz} bandwidth, and a 1000 s integration time. See Appendix \ref{app:detectability} for the explicit calculation.}
+\tablecomments{Parameters based on \citet{Bailes2020} for MeerKAT and \citet{Li2016} for FAST. Minimum EIRP is calculated for a detection threshold of SNR=10, a 1 MHz bandwidth, and a 1000 s integration time. See Appendix \ref{app:detectability} for the explicit calculation.}
 \end{deluxetable*}
 
-Figure \ref{fig:detectability} illustrates the immense challenge of interstellar detection. It plots the required transmitter power (EIRP) against distance to achieve an SNR of 10. Even for FAST, detecting an Arecibo-class transmitter (EIRP $\approx 10^{13}\,\mathrm{W}$) is only possible out to a few tens of\,\mathrm{parsecs}. This analysis underscores why our prior on $D$ was justifiably pessimistic.
+Figure \ref{fig:detectability} illustrates the immense challenge of interstellar detection. It plots the required transmitter power (EIRP) against distance to achieve an SNR of 10. Even for FAST, detecting an Arecibo-class transmitter (EIRP $\approx 10^{13}$ W) is only possible out to a few tens of parsecs. This analysis underscores why our prior on $D$ was justifiably pessimistic.
 
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/figure4_detectability.png}
-\caption{Detectability contours for MeerKAT and FAST. **(a)** The minimum EIRP required to achieve a detection (SNR=10) as a function of distance. **(b)** The received SNR as a function of distance for a fixed Arecibo-class transmitter (EIRP = $10^{13}\,\mathrm{W}$).}
+\caption{Detectability contours for MeerKAT and FAST. **(a)** The minimum EIRP required to achieve a detection (SNR=10) as a function of distance. **(b)** The received SNR as a function of distance for a fixed Arecibo-class transmitter (EIRP = $10^{13}$ W).}
 \label{fig:detectability}
 \end{figure*}
 
@@ -308,7 +308,7 @@ This framework, while an improvement, necessarily rests on simplifying assumptio
 
 The Drake Equation 2.0 presented here is a robust and mathematically consistent framework for evaluating the number of observable extraterrestrial civilizations. The primary value of this framework is not in providing a definitive answer, but in its role as a tool for quantifying uncertainty. Our analysis synthesizes astrophysical, biological, and technological uncertainties to produce a posterior probability distribution for $\Nobs$.
 
-Under our fiducial set of priors, we find a median of $\mathbf{\Nobs \approx 0.26}$ ($\log_{10}(\Nobs) = -0.58$), with a 68\% credible interval of [0.05, 1.95]. This result is robust to a suite of pre-specified stress tests; among physically plausible variations, none shift the median by more than 1\,\mathrm{dex}, while an unphysical limiting case ($D=1$, perfect detectability) shifts it by +1.06\,\mathrm{dex}. Our analysis identifies detectability ($D$) and the abiogenesis rate ($\lambda_L$) as the dominant sources of uncertainty, with first-order Sobol indices of $S_i = 0.42$ and $S_i = 0.28$ respectively, meaning they contribute approximately 42\% and 28\% of the total variance. Furthermore, our detectability model, grounded in the capabilities of real instruments like MeerKAT and FAST, demonstrates that even Arecibo-class transmitters are only detectable out to a few tens of\,\mathrm{parsecs}.
+Under our fiducial set of priors, we find a median of $\mathbf{\Nobs \approx 0.26}$ ($\log_{10}(\Nobs) = -0.58$), with a 68\% credible interval of [0.05, 1.95]. This result is robust to a suite of pre-specified stress tests; among physically plausible variations, none shift the median by more than 1 dex, while an unphysical limiting case ($D=1$, perfect detectability) shifts it by +1.06 dex. Our analysis identifies detectability ($D$) and the abiogenesis rate ($\lambda_L$) as the dominant sources of uncertainty, with first-order Sobol indices of $S_i = 0.42$ and $S_i = 0.28$ respectively, meaning they contribute approximately 42\% and 28\% of the total variance. Furthermore, our detectability model, grounded in the capabilities of real instruments like MeerKAT and FAST, demonstrates that even Arecibo-class transmitters are only detectable out to a few tens of parsecs.
 
 When we apply anthropic conditioning to account for our own existence (i.e., $\Nobs \ge 1$), the median shifts to $\Nobs \approx 1.78$, making the existence of at least one other observable civilization statistically plausible. This conditioning is philosophically equivalent to imposing a truncated prior where $P(\Nobs \ge 1) = 1$, a concept explored in detail in the literature on anthropic reasoning \citep{Bostrom2002, Sandberg2018}. Ultimately, this framework offers a potential resolution to the Fermi Paradox by showing that a null observational result is not only statistically plausible but, under our conservative priors, is the expected outcome, with $P(k=0 \text{ detections}) = 73.2\%$.
 
@@ -320,7 +320,7 @@ The complete analysis code, including the Monte Carlo simulation, figure generat
 
 \begin{itemize}
     \item \textbf{GitHub Repository:} \url{https://github.com/jason-noble/drake-equation-2.0}
-    \item \textbf{Zenodo Archive:} \href{https://doi.org/10.5281/zenodo.17616903}{10.5281/zenodo.17616903}
+    \item \textbf{Zenodo Archive:} \href{https://doi.org/10.5281/zenodo.XXXXXXX}{10.5281/zenodo.XXXXXXX} (DOI will be assigned upon acceptance)
 \end{itemize}
 
 The simulation was run using Python 3.10 with NumPy (v1.23), SciPy (v1.9), and Matplotlib (v3.6). The random number generator was seeded with the value 42 for the final production run, and seed sensitivity was verified across five independent runs (see Section 4.2).
@@ -336,11 +336,11 @@ This appendix provides the explicit mathematical formulas for $\Phi(t)$ (habitab
 The Galactic Habitable Planet Formation Rate, $\Phi(t)$, is derived from the cosmic star formation history combined with planet occurrence rates and habitable zone fractions. We adopt the \citet{madau2014} cosmic star formation rate density (SFRD), $\psi(z)$, as a function of redshift $z$:
 
 \begin{equation}
-\psi(z) = 0.015 \frac{(1+z)^{2.7}}{1 + [(1+z)/2.9]^{5.6}} \quad [M_\odot\,\mathrm{yr^{-1}}\,\mathrm{Mpc^{-3}}]
+\psi(z) = 0.015 \frac{(1+z)^{2.7}}{1 + [(1+z)/2.9]^{5.6}} \quad [M_\odot \, \text{yr}^{-1} \, \text{Mpc}^{-3}]
 \label{eq:madau}
 \end{equation}
 
-To convert redshift $z$ to cosmic time $t$ (in Gyr), we use the standard cosmological relation for a flat $\Lambda$CDM universe with $H_0 = 70\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$, $\Omega_m = 0.3$, and $\Omega_\Lambda = 0.7$:
+To convert redshift $z$ to cosmic time $t$ (in Gyr), we use the standard cosmological relation for a flat $\Lambda$CDM universe with $H_0 = 70$ km/s/Mpc, $\Omega_m = 0.3$, and $\Omega_\Lambda = 0.7$:
 
 \begin{equation}
 t(z) = \frac{1}{H_0} \int_z^\infty \frac{dz'}{(1+z') \sqrt{\Omega_m (1+z')^3 + \Omega_\Lambda}}
@@ -356,10 +356,10 @@ For our Milky Way-focused analysis, we scale the cosmic SFRD to the Galactic sta
 
 where:
 \begin{itemize}
-    \item $R_*(t) = \psi(z(t)) \cdot V_{\text{MW}} / M_{\text{avg}}$ is the Galactic star formation rate [\mathrm{stars\,Gyr^{-1}}], with $V_{\text{MW}}$ the Milky Way volume and $M_{\text{avg}} \approx 0.5 M_\odot$ the average stellar mass.
-    \item $f_p$ is the fraction of \mathrm{stars} with planets (sampled from priors, see Table \ref{tab:priors}).
+    \item $R_*(t) = \psi(z(t)) \cdot V_{\text{MW}} / M_{\text{avg}}$ is the Galactic star formation rate [stars/Gyr], with $V_{\text{MW}}$ the Milky Way volume and $M_{\text{avg}} \approx 0.5 M_\odot$ the average stellar mass.
+    \item $f_p$ is the fraction of stars with planets (sampled from priors, see Table \ref{tab:priors}).
     \item $f_{HZ}$ is the fraction of planets in the habitable zone.
-    \item $f_{GHZ}$ is the fraction of \mathrm{stars} in the Galactic Habitable Zone (avoiding the Galactic center and outer regions with low metallicity).
+    \item $f_{GHZ}$ is the fraction of stars in the Galactic Habitable Zone (avoiding the Galactic center and outer regions with low metallicity).
 \end{itemize}
 
 In our Monte Carlo simulation, we use a simplified time-averaged approximation:
@@ -391,11 +391,11 @@ The **signal-to-noise ratio** (SNR) for a radio telescope is:
 
 where:
 \begin{itemize}
-    \item $A_{\text{eff}} = G_r \cdot \lambda^2 / (4\pi)$ is the effective collecting area [\mathrm{m^2}], with $G_r$ the receiver gain and $\lambda$ the wavelength.
-    \item $k_B = 1.38 \times 10^{-23}\,\mathrm{J\,K^{-1}}$ is the Boltzmann constant.
-    \item $T_{\text{sys}}$ is the system temperature [\mathrm{K}] (includes receiver noise and sky background).
-    \item $t_{\text{int}}$ is the integration time [\mathrm{s}].
-    \item $\Delta \nu$ is the bandwidth [\mathrm{Hz}].
+    \item $A_{\text{eff}} = G_r \cdot \lambda^2 / (4\pi)$ is the effective collecting area [m$^2$], with $G_r$ the receiver gain and $\lambda$ the wavelength.
+    \item $k_B = 1.38 \times 10^{-23}$ J/K is the Boltzmann constant.
+    \item $T_{\text{sys}}$ is the system temperature [K] (includes receiver noise and sky background).
+    \item $t_{\text{int}}$ is the integration time [s].
+    \item $\Delta \nu$ is the bandwidth [Hz].
 \end{itemize}
 
 For a detection threshold of SNR $= \text{SNR}_{\text{min}}$ (typically 10), the **minimum detectable EIRP** at distance $d$ is:
@@ -405,7 +405,7 @@ For a detection threshold of SNR $= \text{SNR}_{\text{min}}$ (typically 10), the
 \label{eq:eirp_min}
 \end{equation}
 
-The **detectability factor** $D$ is modeled as the fraction of civilizations within the observable volume whose transmitter power exceeds $\text{EIRP}_{\text{min}}$. In our fiducial model, $D$ is treated as a free parameter with a Beta prior (mean = 0.2), reflecting our profound uncertainty about the distribution of transmitter powers and beaming strategies across hypothetical civilizations. The values in Table \ref{tab:instruments} provide concrete anchors for this prior, showing that even for state-of-the-art instruments like FAST and MeerKAT, only the most powerful transmitters (EIRP $> 10^{13}\,\mathrm{W}$) are detectable beyond a few tens of\,\mathrm{parsecs}.
+The **detectability factor** $D$ is modeled as the fraction of civilizations within the observable volume whose transmitter power exceeds $\text{EIRP}_{\text{min}}$. In our fiducial model, $D$ is treated as a free parameter with a Beta prior (mean = 0.2), reflecting our profound uncertainty about the distribution of transmitter powers and beaming strategies across hypothetical civilizations. The values in Table \ref{tab:instruments} provide concrete anchors for this prior, showing that even for state-of-the-art instruments like FAST and MeerKAT, only the most powerful transmitters (EIRP $> 10^{13}$ W) are detectable beyond a few tens of parsecs.
 
 \bibliography{references}
 \bibliographystyle{aasjournal}
@@ -418,7 +418,7 @@ The **detectability factor** $D$ is modeled as the fraction of civilizations wit
 
 \subsection{Integration Method}
 
-The integral in the Master Equation (Equation \ref{eq:master}) is computed numerically for each Monte Carlo sample. We use the trapezoidal rule with a time resolution of 1 Myr, integrating from $t=0$ (Big Bang) to $t=t_{\text{now}}$ (13.8\,\mathrm{Gyr}). This method was chosen for its simplicity and stability, and tests with higher-order methods (e.g., Simpson's rule) and finer time resolutions showed no significant change in the posterior distribution, confirming that the trapezoidal rule provides sufficient accuracy for this application.
+The integral in the Master Equation (Equation \ref{eq:master}) is computed numerically for each Monte Carlo sample. We use the trapezoidal rule with a time resolution of 1 Myr, integrating from $t=0$ (Big Bang) to $t=t_{\text{now}}$ (13.8 Gyr). This method was chosen for its simplicity and stability, and tests with higher-order methods (e.g., Simpson's rule) and finer time resolutions showed no significant change in the posterior distribution, confirming that the trapezoidal rule provides sufficient accuracy for this application.
 
 % \subsection{Posterior Corner Plot}
 % 
@@ -436,4 +436,4 @@ The integral in the Master Equation (Equation \ref{eq:master}) is computed numer
 
 Our detectability model can be directly anchored to the capabilities of current and planned SETI surveys. The **Breakthrough Listen** initiative, for example, is conducting the most comprehensive search for technosignatures to date, using instruments like the Green Bank Telescope (GBT) and Parkes Telescope \citep{gajjar2021}. Their surveys provide concrete sensitivity limits that inform our prior on $D$.
 
-For a typical narrowband search with the GBT at C-band (4-8\,\mathrm{GHz}), the minimum detectable Equivalent Isotropic Radiated Power (EIRP) for a transmitter at the Galactic Center is $\sim 5 \times 10^{17}\,\mathrm{W}$ \citep{gajjar2021}. This is more than 10,000 times the power of the Arecibo planetary radar. For a signal to be detectable by Breakthrough Listen's GBT survey from 100\,\mathrm{pc} away, it would still require an EIRP of $\sim 3 \times 10^{14}\,\mathrm{W}$. This underscores the immense challenge of interstellar detection and justifies our pessimistic prior on the detectability factor $D$. The high sensitivity of programs like Breakthrough Listen, while unprecedented, still only probes the most powerful, intentionally beamed signals from nearby stars, reinforcing the conclusion that $D$ is likely a very small number.
+For a typical narrowband search with the GBT at C-band (4-8 GHz), the minimum detectable Equivalent Isotropic Radiated Power (EIRP) for a transmitter at the Galactic Center is $\sim 5 \times 10^{17}$ W \citep{gajjar2021}. This is more than 10,000 times the power of the Arecibo planetary radar. For a signal to be detectable by Breakthrough Listen's GBT survey from 100 pc away, it would still require an EIRP of $\sim 3 \times 10^{14}$ W. This underscores the immense challenge of interstellar detection and justifies our pessimistic prior on the detectability factor $D$. The high sensitivity of programs like Breakthrough Listen, while unprecedented, still only probes the most powerful, intentionally beamed signals from nearby stars, reinforcing the conclusion that $D$ is likely a very small number.

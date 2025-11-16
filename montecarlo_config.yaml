@@ -1,0 +1,88 @@
+# Monte Carlo Simulation Configuration for Drake Equation 2.0
+
+simulation:
+  n_samples: 1000000
+  random_seed: 42
+  seed_sensitivity_test_seeds: [42, 123, 456, 789, 2024]
+
+priors:
+  lambda_L:
+    distribution: lognormal
+    mu: -1.0
+    sigma: 2.0
+    description: "Abiogenesis rate (Gyr^-1)"
+    
+  D:
+    distribution: beta
+    alpha: 1.5
+    beta: 8.5
+    description: "Detectability fraction"
+    
+  tau_s:
+    distribution: lognormal
+    mu: -2.3
+    sigma: 1.0
+    description: "Signal lifetime (Gyr)"
+    
+  f_p:
+    distribution: beta
+    alpha: 5.0
+    beta: 5.0
+    description: "Fraction of stars with planets"
+    
+  f_HZ:
+    distribution: beta
+    alpha: 2.2
+    beta: 7.8
+    description: "Fraction of planets in habitable zone"
+    
+  f_GHZ:
+    distribution: beta
+    alpha: 3.0
+    beta: 7.0
+    description: "Fraction in galactic habitable zone"
+    
+  f_i:
+    distribution: beta
+    alpha: 0.8
+    beta: 9.2
+    description: "Fraction developing intelligence given life"
+    
+  f_c:
+    distribution: beta
+    alpha: 2.0
+    beta: 8.0
+    description: "Fraction developing communication given intelligence"
+
+integration:
+  method: trapezoidal
+  time_resolution_Myr: 1.0
+  t_min_Gyr: 0.0
+  t_max_Gyr: 13.8
+
+survival_model:
+  baseline: exponential
+  hazard_rate_Gyr: 10.0  # 1/tau_s for exponential
+  
+stress_tests:
+  - name: prior_variance_sweep
+    parameters: [D, lambda_L]
+    variance_multiplier: 2.0
+    
+  - name: alternate_survival_kernels
+    kernels: [weibull_k0.5, weibull_k1.0, weibull_k2.0]
+    
+  - name: gaussian_copula
+    correlations:
+      - [f_i, f_c, 0.7]
+      - [f_p, f_HZ, 0.4]
+      - [tau_s, D, -0.2]
+      
+  - name: perfect_detectability
+    D_fixed: 1.0
+    
+convergence:
+  ess_threshold: 0.95
+  gelman_rubin_threshold: 1.01
+  running_median_tolerance_dex: 0.05
+  running_variance_tolerance_pct: 2.0

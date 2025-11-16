@@ -1,6 +1,3 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17565867.svg)](https://doi.org/10.5281/zenodo.17565867)
-
-
 # Drake Equation 2.0: A Bayesian, Time-Dependent, and Observability-Centered Framework
 
 **Author**: Jason Richard Noble  
@@ -22,7 +19,7 @@ The Drake Equation 2.0 is a revised probabilistic framework for estimating the n
 
 - **Median N_obs ≈ 0.26** (log₁₀(N_obs) = -0.58)
 - **68% Credible Interval**: [0.05, 1.95]
-- **Dominant uncertainties**: Detectability (D, 45%) and abiogenesis rate (λ_L, 30%)
+- **Dominant uncertainties**: Detectability (D, 42%) and abiogenesis rate (λ_L, 28%)
 - **Fermi Paradox resolution**: P(k=0 detections) = 73.2% → null result is expected
 
 ## Repository Structure
@@ -138,23 +135,3 @@ This work builds upon decades of research in SETI and astrobiology. We acknowled
 ## Version History
 
 - **v1.0** (2025-11-09): Initial submission to The Astrophysical Journal
-- ---
-
-## 📄 Citation
-
-If you use this repository, please cite it as:
-
-**Noble, J. R. (2025). _Drake Equation 2.0: A Bayesian, Time-Dependent, and Observability-Centered Framework._ Zenodo.**  
-[https://doi.org/10.5281/zenodo.17565867](https://doi.org/10.5281/zenodo.17565867)
-
-### BibTeX
-```bibtex
-@misc{Noble2025_DrakeEquation2,
-  author       = {Noble, Jason Richard},
-  title        = {Drake Equation 2.0: A Bayesian, Time-Dependent, and Observability-Centered Framework},
-  year         = {2025},
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.17565867},
-  url          = {https://doi.org/10.5281/zenodo.17565867}
-}
-
